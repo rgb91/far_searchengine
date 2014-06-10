@@ -13,7 +13,7 @@ You need to change two files only:
 	-> put all the database credentials here correctly
 
 2) ./application/config/config.php
-	-> change the 'base_url' as required
+	-> change the *base_url* as required
 =============================================================
 Login:
 	-> email : mail_sanjaysaha@yahoo.com
