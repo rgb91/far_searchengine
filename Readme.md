@@ -6,21 +6,25 @@ Server Scripts : PHP (Codeigniter Framework)
 Database       : MySQL
 
 
-==================== INSTALLATION ===========================
+=============================================================
+                      INSTALLATION
+=============================================================
 
 You need to change two files only:
 1) ./application/config/database.php
-	-> put all the database credentials here correctly
+	:: put all the database credentials here correctly
 
 2) ./application/config/config.php
-	-> change the *base_url* as required
-=============================================================
-Login:
-	-> email : mail_sanjaysaha@yahoo.com
-	-> pass  : sanjay
+	:: change the *base_url* as required
 
-Register
-	-> Register with correctly filled up form
+=============================================================
+
+Login:
+	:: email : mail_sanjaysaha@yahoo.com
+	:: pass  : sanjay
+
+Register:
+	:: Register with correctly filled up form
 
 =============================================================
 
