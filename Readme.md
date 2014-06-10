@@ -6,7 +6,7 @@ Server Scripts : PHP (Codeigniter Framework)
 Database       : MySQL
 
 
-~~== INSTALLATION ==~~
+==================== INSTALLATION ===========================
 
 You need to change two files only:
 1) ./application/config/database.php
@@ -14,8 +14,7 @@ You need to change two files only:
 
 2) ./application/config/config.php
 	-> change the 'base_url' as required
-~~==~~==~~==~~==~~==~~
-
+=============================================================
 Login:
 	-> email : mail_sanjaysaha@yahoo.com
 	-> pass  : sanjay
@@ -23,8 +22,11 @@ Login:
 Register
 	-> Register with correctly filled up form
 
+=============================================================
 
 Note: If the Sphinx API is not installed with the PHP service, 
 put the Sphinx API file (.php) in the following directory:
 ./application/controller/
+
+=============================================================
 
