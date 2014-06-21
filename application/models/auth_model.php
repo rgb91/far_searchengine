@@ -13,9 +13,10 @@ class Auth_model extends CI_Model {
 			return;
 		}
 
-		$query = $this->db->get_where('users', array('email'=>$email));
+		$query = $this->db->get_where('ICTCollab_Users', array('email'=>$email));
 		if ( $query->num_rows() == 1){
-			return $query->result()[0];
+			$result_arr = $query->result();
+			return $result_arr[0];
 		}
 		return;
 	}
@@ -30,7 +31,7 @@ class Auth_model extends CI_Model {
 		   'lname' => $lname
 		);
 
-		return $this->db->insert('users', $data);
+		return $this->db->insert('ICTCollab_Users', $data);
 	}
 
 	public function is_taken_username($uname){
@@ -38,7 +39,7 @@ class Auth_model extends CI_Model {
 			return;
 		}
 
-		$query = $this->db->get_where('users', array('uname'=>$uname));
+		$query = $this->db->get_where('ICTCollab_Users', array('uname'=>$uname));
 		if ( $query->num_rows() > 0 ){
 			return true;
 		}
@@ -50,7 +51,7 @@ class Auth_model extends CI_Model {
 			return;
 		}
 
-		$query = $this->db->get_where('users', array('email'=>$email));
+		$query = $this->db->get_where('ICTCollab_Users', array('email'=>$email));
 		if ( $query->num_rows() > 0 ){
 			return true;
 		}
