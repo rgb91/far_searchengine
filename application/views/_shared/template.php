@@ -39,23 +39,14 @@
           </button>
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li>
-              <?php if (!$is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/login">Login</a><?php } ?>
-            </li>
-            <li>
-              <?php if ($is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a><?php } ?>
-            </li>
-            <li>
-              <?php if (!$is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/register">Register</a><?php } ?>
-            </li>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" target="_blank">University of Kentucky</a></li>
+            <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/register">Register</a></li><?php } ?>
             <li>
               <a href="<?php echo base_url();?>index.php/home/index">Home</a>
             </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" target="_blank">University of Kentucky</a></li>
+            <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/login">Login</a></li><?php } ?>
+            <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li><?php } ?>
           </ul>
 
         </div>
@@ -72,19 +63,21 @@
         <div class="row">
           <div class="col-lg-12">
 
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top">Back to top</a></li>
-              <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
-              <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
-              <li><a href="https://twitter.com/thomashpark">Twitter</a></li>
-              <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
-              <li><a href="../help/#api">API</a></li>
-              <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=F22JEM3Q78JC2">Donate</a></li>
-            </ul>
-            <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-            <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-            <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+            <ul  class="list-unstyled" >
+              <li class="pull-right">
+                <a href="#top">Back to top</a>
+              </li>
+              <li><a href="#" target="_blank">University of Kentucky</a></li>
 
+              <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/register">Register</a></li><?php } ?>
+              <li>
+                <a href="<?php echo base_url();?>index.php/home/index">Home</a>
+              </li>
+              <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/login">Login</a></li><?php } ?>
+              <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li><?php } ?>
+            </ul>
+            <p>Copyright &copy; University of Kentucky</p>
+            <p>Developed by <a href="http://dreamsunborn.com/profile" rel="nofollow">Sanjay Saha</a>. Contact him at <a href="mailto:mail_sanjaysaha@yahoo.com">mail_sanjaysaha@yahoo.com</a>.</p>
           </div>
         </div>
 
