@@ -43,7 +43,7 @@
             <li><a href="#" target="_blank">University of Kentucky</a></li>
             <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/register">Register</a></li><?php } ?>
             <li>
-              <a href="<?php echo base_url();?>index.php/home/index">Home</a>
+              <a href="<?php echo base_url();?>index.php/">Home</a>
             </li>
             <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/login">Login</a></li><?php } ?>
             <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li><?php } ?>

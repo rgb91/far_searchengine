@@ -11,7 +11,7 @@
 	<div class="col-lg-8">
 
 
-<?php if ($this->session->flashdata('message') ) { ?>
+<?php if ( $this->session->flashdata('message') ) { ?>
 <div class="alert alert-dismissable alert-<?php echo $this->session->flashdata('message_type');?>">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <p><?php echo $this->session->flashdata('message');?></p>

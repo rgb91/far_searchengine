@@ -34,6 +34,17 @@ class Auth_model extends CI_Model {
 		return $this->db->insert('ICTCollab_Users', $data);
 	}
 
+	public function update_user_profile( $uname, $email, $fname, $lname) {
+		$data = array(
+			'uname' => $uname,
+			'fname' => $fname,
+			'lname' => $lname
+		);
+
+		$this->db->where('email', $email);
+		return $this->db->update('ICTCollab_Users', $data);
+	}
+
 	public function is_taken_username($uname){
 		if ( !isset($uname) || empty($uname) ){
 			return;

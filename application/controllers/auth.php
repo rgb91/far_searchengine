@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
 			redirect(base_url(), 'refresh');
 		}
 		if ( !isset($email) || !isset($pass) || empty($email) || empty($pass) ) {
-			$this->session->set_flashdata('message', 'Fill up the form correctly');
+			$this->set_flash_message('Fill up the form correctly');
 			redirect('auth/login');
 		}
 
@@ -43,19 +43,11 @@ class Auth extends CI_Controller {
 
 		//	echo '<pre>'; print_r($user_obj); die();
 		if ( isset($user_obj)  && !empty($user_obj) && $this->password_check($pass,$user_obj) ) {
-
+			$this->set_flash_message('Successfully Logged in', 'success');
 			$this->log_user_in($user_obj->uname, $user_obj->email, $user_obj->fname, $user_obj->lname);
-			/*$array = array(
-				'user_login'	=> 1,
-				'email' 		=> $user_obj->email,
-				'first_name' 	=> $user_obj->fname,
-				'last_name' 	=> $user_obj->lname,
-				'user_name' 	=> $user_obj->uname
-			);
-			$this->session->set_userdata( $array );
-			redirect(base_url(), 'refresh');*/
+
 		} else {
-			$this->session->set_flashdata('message', 'Login Error!');
+			$this->set_flash_message('Login Error!');
 			redirect('auth/login');
 		}
 	}
@@ -74,7 +66,7 @@ class Auth extends CI_Controller {
 
 	public function register() {
 		if ( $this->session->userdata('user_login') == 1 ) {
-			$this->session->set_flashdata('message', 'You are already registered');
+			$this->set_flash_message('You are already registered', 'warning');
 			redirect(base_url());
 		}
 
@@ -89,53 +81,102 @@ class Auth extends CI_Controller {
 		$fname 		= $this->input->post('firstname');
 		$lname 		= $this->input->post('lastname');
 
-		$this->registration_validation($uname, $email, $pass, $repass, $fname, $lname);
+		$this->registration_validation($uname, $email, $pass, $repass, $fname, $lname, 'register');
 
 		// echo '<pre>'; print_r($this->input->post()); die();
 
 		if ( $this->Auth_model->register_new_user($uname, $email, $pass, $fname, $lname) ) {
-			$this->session->set_flashdata('message', 'Successfully Registered');
+			$this->set_flash_message('Successfully Registered', 'success');
 			$this->log_user_in($uname, $email, $fname, $lname);
 		} else {
-			$this->session->set_flashdata('message', 'Registration is not successful');
+			$this->set_flash_message('Registration is not successful');
 			redirect('auth/register', 'refresh');
 		}
 	}
 
-	private function registration_validation($uname, $email, $pass, $repass, $fname, $lname) {
+	public function profile() {
+		if ( $this->session->userdata('user_login') != 1 ) {
+			$this->set_flash_message('You need to login first');
+			redirect(base_url());
+		}
+
+		$this->render_page('auth/edit_profile_view', array());
+	}
+
+	public function profile_dopost() {
+		$uname 		= $this->input->post('username');
+		$email 		= $this->input->post('email');
+		$pass 		= $this->input->post('pass');
+		$fname 		= $this->input->post('firstname');
+		$lname 		= $this->input->post('lastname');
+
+		$user_obj = $this->Auth_model->get_user_by_email($email);
+
+		if ( isset($user_obj)  && !empty($user_obj) && $this->password_check($pass,$user_obj) ) {
+
+			$this->registration_validation($uname, $email, $pass, $pass, $fname, $lname, 'profile');
+
+			if ( $this->Auth_model->update_user_profile( $uname, $email, $fname, $lname) ) {
+				$this->set_flash_message('Successfully Updated', 'success');
+				$this->update_session_data($uname, $email, $fname, $lname );
+				redirect('auth/profile', 'refresh');
+			} else {
+				$this->set_flash_message('Update is not successful');
+				redirect('auth/profile', 'refresh');
+			}
+
+		} else {
+			$this->set_flash_message('Password does not match');
+			redirect('auth/profile', 'refresh');
+		}
+	}
+
+	private function update_session_data($uname, $email, $fname, $lname) {
+		$array = array(
+			'first_name' 	=> $fname,
+			'last_name' 	=> $lname,
+			'user_name' 	=> $uname
+		);
+		$this->session->set_userdata( $array );
+	}
+
+	private function registration_validation($uname, $email, $pass, $repass, $fname, $lname, $redirectMethod) {
 
 		if ( !$this->is_valid_reg_form($uname, $email, $pass, $repass, $fname, $lname) ) {
-			$this->session->set_flashdata('message', 'Fill up the form correctly');
-			redirect('auth/register');
-		}
-		if ( $this->session->userdata('user_login') == 1) {
-			redirect(base_url(), 'refresh');
+			$this->set_flash_message('Fill up the form correctly');
+			$this->session->set_flashdata('message_type', 'danger');
+			redirect('auth/'.$redirectMethod);
 		}
 
 		if ( strlen($pass) < $this->USERNAME_MIN_LENGTH ) {
-			$this->session->set_flashdata('message', 'Username must contain at least '.$this->USERNAME_MIN_LENGTH.' letters');
-			redirect('auth/register');
+			$this->set_flash_message('Username must contain at least '.$this->USERNAME_MIN_LENGTH.' characters');
+			redirect('auth/'.$redirectMethod);
 		}
 
 		if ( strlen($pass) < $this->PASSWORD_MIN_LENGTH ) {
-			$this->session->set_flashdata('message', 'Password must contain at least '.$this->PASSWORD_MIN_LENGTH.' letters');
-			redirect('auth/register');
+			$this->set_flash_message('Password must contain at least '.$this->PASSWORD_MIN_LENGTH.' characters');
+			redirect('auth/'.$redirectMethod);
 		}
 
 		if ( strcmp($pass, $repass) != 0 ) {
-			$this->session->set_flashdata('message', 'Password mismatch');
-			redirect('auth/register');
+			$this->set_flash_message('Password mismatch!');
+			redirect('auth/'.$redirectMethod);
 		}
 
-		if ( $this->Auth_model->is_taken_email($email) ) {
-			$this->session->set_flashdata('message', 'This email addess has already been registered');
-			redirect('auth/register');
+		if ( $redirectMethod == 'register' && $this->Auth_model->is_taken_email($email) ) {
+			$this->set_flash_message('This email has already been registered');
+			redirect('auth/'.$redirectMethod);
 		}
 
-		if ( $this->Auth_model->is_taken_username($uname) ) {
-			$this->session->set_flashdata('message', 'This username has already been registered');
-			redirect('auth/register');
+		if ( $redirectMethod == 'register' && $this->Auth_model->is_taken_username($uname) ) {
+			$this->set_flash_message('This username has already been registered');
+			redirect('auth/'.$redirectMethod);
 		}
+	}
+
+	private function set_flash_message($message, $message_type='danger') {
+		$this->session->set_flashdata('message', $message);
+		$this->session->set_flashdata('message_type', $message_type);
 	}
 
 	private function log_user_in($uname, $email, $fname, $lname) {
@@ -147,7 +188,7 @@ class Auth extends CI_Controller {
 			'user_name' 	=> $uname
 		);
 		$this->session->set_userdata( $array );
-		redirect(base_url(), 'refresh');
+		redirect(base_url().'search/query/');
 	}
 
 	private function password_check($pass, $user_obj) {
