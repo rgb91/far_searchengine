@@ -11,6 +11,14 @@ class Search_model extends CI_Model {
 
 	}
 
+	public function logSearchText($email, $searchText) {
+		$data = array(
+			'USER_EMAIL' => $email,
+			'SEARCH_TEXT' => $searchText
+			);
+		$this->db->insert('ICTCollab_SearchHistory', $data);
+	}
+
 }
 
 /* End of file search_model.php */

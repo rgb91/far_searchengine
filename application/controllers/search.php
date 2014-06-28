@@ -28,6 +28,10 @@ class Search extends CI_Controller {
 			return;
 		}
 
+		// Inserting the search by user in the
+		// SearchHistory table in MySQL
+		$collaborators 			= $this->Search_model->logSearchText($this->session->userdata('email'), $searchText);
+
 		$this->setupSphinxClient();
 		$searchTextAdvanced 	= $this->getDetailedQuery($searchText);
 		$result 				= $this->sphinxClient->Query( $searchTextAdvanced, 'test1' );
