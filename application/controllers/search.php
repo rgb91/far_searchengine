@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require 'sphinxapi.php';
-
 class Search extends CI_Controller {
 
 	private $sphinxClient = null;
