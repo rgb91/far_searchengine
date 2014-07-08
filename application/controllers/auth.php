@@ -188,7 +188,7 @@ class Auth extends CI_Controller {
 			'user_name' 	=> $uname
 		);
 		$this->session->set_userdata( $array );
-		redirect(base_url().'search/query/');
+		redirect('search/query/');
 	}
 
 	private function password_check($pass, $user_obj) {

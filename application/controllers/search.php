@@ -11,10 +11,10 @@ class Search extends CI_Controller {
 
 	public function index() {
 		if ( $this->session->userdata('user_login') != 1 ) {
-			redirect(base_url().'index.php/auth/login', 'refresh');
+			redirect('/auth/login', 'refresh');
 		}
 
-		redirect(base_url().'index.php/search/query', 'refresh');
+		redirect('/search/query', 'refresh');
 	}
 
 	public function query() {

@@ -28,9 +28,14 @@ ___
 
 ___
 
-**Note:** If the Sphinx API is not installed with the PHP service, 
+
+* **Database(SQL) files directory: /far/sql/**
+* **Sphinx Configuration file directory: /far/sphinx/**
+
+___
+
+**Note:** If the Sphinx API is not installed with the PHP service,
 put the Sphinx API file (.php) in the following directory:
 **./application/controller/**
 
 ___
-
