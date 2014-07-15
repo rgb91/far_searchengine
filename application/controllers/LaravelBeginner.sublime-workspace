@@ -1,0 +1,742 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"arra",
+				"array	$… = array (…)"
+			],
+			[
+				"mysql_close",
+				"mysql_close()	mysql Function"
+			],
+			[
+				"strsi",
+				"strstr()	standard Function"
+			],
+			[
+				"sub",
+				"substr()	standard Function"
+			],
+			[
+				"dm",
+				"dmuserlist_st"
+			],
+			[
+				"impl",
+				"implode()	standard Function"
+			],
+			[
+				"mysq",
+				"mysql_query"
+			],
+			[
+				"mess",
+				"message_type"
+			],
+			[
+				"colla",
+				"collabDesignation"
+			],
+			[
+				"foreac",
+				"foreach	foreach …"
+			],
+			[
+				"th",
+				"THEAD	Tag"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"que",
+				"queryString"
+			],
+			[
+				"sear",
+				"searchText"
+			],
+			[
+				"searc",
+				"searchText_ad"
+			],
+			[
+				"search",
+				"searchText"
+			],
+			[
+				"se",
+				"searchText_ad  (variable)"
+			],
+			[
+				"strcm",
+				"strcmp()	Core Function"
+			],
+			[
+				"load",
+				"load_view	CI - Load View"
+			],
+			[
+				"user",
+				"user_obj"
+			],
+			[
+				"empt",
+				"empty()	Language Construct"
+			],
+			[
+				"load_",
+				"load_model	CI - Load Model"
+			],
+			[
+				"error",
+				"error_reporting"
+			],
+			[
+				"function",
+				"function 	Language Construct"
+			],
+			[
+				"$colla",
+				"$collab"
+			],
+			[
+				"frie",
+				"friends  (variable)"
+			],
+			[
+				"fri",
+				"friend_requests"
+			],
+			[
+				"propic",
+				"propic_self  (variable)"
+			],
+			[
+				"your_fri",
+				"your_friends_posts"
+			],
+			[
+				"frien",
+				"friend_posts"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"post",
+				"post_obj  (variable)"
+			],
+			[
+				"you",
+				"your_friends"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"fr",
+				"friendlist"
+			],
+			[
+				"get",
+				"get_propic_from_username  (function)"
+			],
+			[
+				"ret",
+				"retval"
+			],
+			[
+				"prit",
+				"print_r"
+			],
+			[
+				"Dashboa",
+				"Dashboard_model"
+			],
+			[
+				"additio",
+				"additional_data"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"die",
+				"die()	Language Construct"
+			],
+			[
+				"routP",
+				"$routeProvider	AngularJS"
+			],
+			[
+				"scope",
+				"$scope	AngularJS"
+			],
+			[
+				"cont",
+				"controller	Angular.js"
+			],
+			[
+				"connec",
+				"_connection_string  (variable)"
+			],
+			[
+				"s",
+				"str"
+			],
+			[
+				"explo",
+				"explode()	standard Function"
+			],
+			[
+				"funct",
+				"function 	Language Construct"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"git push",
+				"Git: Push Tags"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"gitadd",
+				"Git: Add..."
+			],
+			[
+				"git: add",
+				"Git: Add..."
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"synsql",
+				"Set Syntax: SQL"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"tag",
+				"Tagify: Get tag list"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pakca",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"html ",
+				"Snippet: html"
+			],
+			[
+				"function",
+				"Snippet: function …"
+			],
+			[
+				"functio",
+				"Snippet: Function Signature"
+			],
+			[
+				"model",
+				"Snippet: CI - Base Model"
+			],
+			[
+				"constru",
+				"Snippet: function __construct"
+			],
+			[
+				"php",
+				"Format: Php"
+			],
+			[
+				"beau",
+				"HTMLBeautify"
+			],
+			[
+				"php ",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"set sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"Model",
+				"Snippet: CI - Base Model"
+			],
+			[
+				"controller",
+				"Snippet: CI - Base Controller"
+			],
+			[
+				"html",
+				"HTMLBeautify"
+			],
+			[
+				"pak",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"AngularJS: Toggle - Enable data- Prefix"
+			],
+			[
+				"ang",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"pakc",
+				"Package Control: Install Package"
+			],
+			[
+				"paka",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/html/laravel/laravel/documentation/views/templating.md",
+		"/var/www/html/laravel/laravel/blade.php",
+		"/var/www/html/laravel/laravel/helpers.php",
+		"/var/www/html/laravel/laravel/section.php",
+		"/var/www/html/laravel/laravel/tests/cases/blade.test.php",
+		"/var/www/html/laravel/app/config/app.php",
+		"/var/www/html/far/application/models/search_model.php",
+		"/var/www/html/far_test/post.php",
+		"/var/www/html/far/application/models/auth_model.php",
+		"/var/www/html/far_test/index.php",
+		"/var/www/html/far/application/views/auth/edit_profile_view.php",
+		"/var/www/html/far/application/language/english/site_constants_lang.php",
+		"/var/www/html/far/application/views/auth/register_view.php",
+		"/var/www/html/far/application/controllers/auth.php",
+		"/var/www/html/far/application/views/search/search_view.php",
+		"/var/www/html/far/application/views/auth/login_view.php",
+		"/var/www/html/far/application/views/_shared/template.php",
+		"/var/www/html/far/application/views/_shared/template-original.php",
+		"/var/www/html/far/application/views/_shared/template-downloaded.php",
+		"/var/www/html/far/public/css/bootswatch.min.css",
+		"/var/www/html/far/application/controllers/search.php",
+		"/var/www/html/far/ICTCollab_IntellCont_Updated.sql",
+		"/var/www/html/far/public/css/bootstrap.min.css",
+		"/var/www/html/far/public/css/bootstrap.css",
+		"/var/www/html/far/application/controllers/home.php",
+		"/var/www/html/far_test/strange.php",
+		"/var/www/html/far/application/config/database.php",
+		"/home/sanjaysaha/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/var/www/html/far/public/css/style.css",
+		"/var/www/html/far/application/config/autoload.php",
+		"/var/www/html/far/application/language/english/errors_lang.php",
+		"/var/www/html/far_test/below_part.php",
+		"/var/www/html/far/application/config/routes.php",
+		"/var/www/html/far/application/views/search/results_view.php",
+		"/var/www/html/far/application/views/home/home_view.php",
+		"/var/www/html/far/application/controllers/search--extras.php",
+		"/var/www/html/Ekattor-School-Management-System-Pro/application/controllers/admin.php",
+		"/usr/local/sphinx-2.1.8-release/api/test2.php",
+		"/var/www/html/far_test/sphinxapi.php",
+		"/var/www/html/far_test/sphinx.conf",
+		"/usr/local/sphinx-2.1.8-release/sphinx.conf",
+		"/var/www/html/far/application/config/config.php",
+		"/var/www/html/far/.htaccess",
+		"/var/www/html/sphinx/collaborators.xml",
+		"/home/sanjaysaha/Downloads/SE/SE/sphinx.conf",
+		"/var/www/html/sphinx/test_sphinx.php",
+		"/home/sanjaysaha/tmp.html",
+		"/var/www/html/bitbook1/application/config/config.php",
+		"/var/www/html/bitbook1/application/views/friend_reqs.php",
+		"/var/www/html/bitbook1/application/controllers/friends.php",
+		"/var/www/html/bitbook1/application/models/friends_model.php",
+		"/var/www/html/bitbook1/application/config/routes.php",
+		"/home/sanjaysaha/Drive/bas/home--new.php",
+		"/var/www/html/bitbook1/application/views/auth/login.php",
+		"/var/www/html/bitbook1/application/views/_shared/template.php",
+		"/var/www/html/bitbook1/application/views/dashboard_view.php",
+		"/var/www/html/bitbook1/application/models/profile_model.php",
+		"/var/www/html/bitbook1/application/models/post_model.php",
+		"/media/sanjaysaha/083CB64A3CB63294/home--new.php",
+		"/var/www/html/bitbook1/application/controllers/post.php",
+		"/var/www/html/bitbook1/application/controllers/dashboard.php",
+		"/home/sanjaysaha/Drive/bas/application/views/pages/settings.php",
+		"/var/www/html/bitbook1/application/controllers/edit.php",
+		"/var/www/html/bitbook1/application/views/profile_view.php",
+		"/var/www/html/bitbook1/application/controllers/profile.php",
+		"/home/sanjaysaha/Downloads/ICTCollab_IntellCont.sql",
+		"/home/sanjaysaha/Downloads/far_searchengine.sql",
+		"/home/sanjaysaha/Drive/bas/application/views/pages/profile.php",
+		"/media/sanjaysaha/083CB64A3CB63294/friendreq.php",
+		"/var/www/html/bitbook1/application/models/user_model.php",
+		"/var/www/html/bitbook1/application/libraries/Mongo_db.php",
+		"/var/www/html/bitbook1/public/css/bootstrap.css",
+		"/var/www/html/bitbook1/application/controllers/home.php",
+		"/var/www/html/bitbook1/application/controllers/auth.php",
+		"/var/www/html/bitbook1/application/libraries/Ion_auth.php",
+		"/var/www/html/bitbook1/application/models/ion_auth_mongodb_model.php",
+		"/var/www/html/bitbook1/application/config/ion_auth.php",
+		"/var/www/html/bitbook1/application/views/dashboard/profile_view.php",
+		"/var/www/html/bitbook1/application/views/home_view.php",
+		"/var/www/html/bitbook1/application/models/ion_auth_model.php",
+		"/var/www/html/bitbook1/application/models/check_model.php",
+		"/var/www/html/bitbook1/application/config/mongodb.php",
+		"/var/www/html/bitbook1/application/models/auth/ion_auth_model.php",
+		"/var/www/html/angularphp/search.php",
+		"/var/www/html/angularphp/search.js",
+		"/var/www/html/angularphp/index.html",
+		"/var/www/html/angulartest/index.html",
+		"/var/www/html/bitbook1/application/models/mongo_test_model.php",
+		"/var/www/html/bitbook1/application/models/dashboard_model.php",
+		"/var/www/html/AngularJSDemos/angular-examples/module/recommended.html",
+		"/var/www/html/bitbook1/application/models/todo_model.php",
+		"/var/www/html/bitbook1/application/views/auth/login--new.php",
+		"/home/sanjaysaha/Drive/bas/index.php",
+		"/var/www/html/bitbook1/application/config/autoload.php",
+		"/var/www/html/bitbook1/application/views/dashboard/profile.php",
+		"/var/www/html/bitbook1/application/controllers/check.php",
+		"/var/www/html/bitbook1/application/controllers/prev/auth.php",
+		"/var/www/html/bitbook1/application/controllers/prev/auth--backup.php",
+		"/var/www/html/bitbook1/application/config/database.php",
+		"/var/www/html/demo_login/application/config/database.php",
+		"/var/www/html/bitbook1/system/core/Model.php",
+		"/var/www/html/bitbook1/application/controllers/auth--backup.php",
+		"/var/www/html/bitbook/application/libraries/Ion_auth.php",
+		"/var/www/html/bitbook/application/controllers/auth.php",
+		"/var/www/html/bitbook/application/models/ion_auth_mongodb_model.php",
+		"/var/www/html/bitbook/application/config/ion_auth.php",
+		"/var/www/html/bitbook/application/config/mongodb.php",
+		"/var/www/html/bitbook1/application/models/auth_model.php",
+		"/var/www/html/bitbook1/application/models/ion_mongo_model.php",
+		"/var/www/html/bitbook1/application/models/ion_auth_mongodb_model---.php",
+		"/var/www/html/bitbook1/application/models/ion_auth_model--backup.php",
+		"/var/www/html/bitbook/application/models/ion_auth_model.php",
+		"/var/www/html/bitbook/application/models/ion_auth_model.html",
+		"/var/www/html/bitbook/application/controllers/home.php",
+		"/var/www/html/bitbook/application/views/auth/create_user.php",
+		"/var/www/html/mongophp/test.php",
+		"/var/www/html/bitbook/application/libraries/Mongo_db.php",
+		"/var/www/html/bitbook/application/config/database.php",
+		"/var/www/html/bitbook/application/config/autoload.php",
+		"/var/www/html/bitbook/system/core/Controller.php",
+		"/var/www/html/ion/application/sql/ion_auth.sql",
+		"/var/www/html/ion/application/sql/ion_auth.mssql.sql",
+		"/var/www/html/bitbook/application/controllers/dashboard.php",
+		"/var/www/html/bitbook/system/core/Loader.php",
+		"/var/www/html/bitbook2/application/config/config.php",
+		"/var/www/html/bitbook/application/views/_shared/template-backup.html",
+		"/var/www/html/bitbook/application/views/_shared/template.php",
+		"/var/www/html/cars/application/views/stock/stock_page.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"yield(",
+			"update_ses",
+			"update",
+			"log_user",
+			"readon",
+			"$this->session->set_flashdata('message', '",
+			"set_flashdata('message',",
+			"set_flashda",
+			"ion->set_flashdata('mess",
+			"item",
+			"<br",
+			"\\n",
+			" ",
+			"\"top\"",
+			"id=\"top\"",
+			"users",
+			"|",
+			"lang",
+			"searchText_ad",
+			"$sphinxClient",
+			"$cl",
+			"terms",
+			"searchText",
+			"terms",
+			"render",
+			"$this->load->view",
+			"->flash",
+			"flash",
+			"pre-query",
+			"SphinxClient",
+			"farconf",
+			"searchd",
+			"defa",
+			"defau",
+			"}\n",
+			"burgess",
+			"</sphinx:document>",
+			"create",
+			"img-resp",
+			"His",
+			"self_profile",
+			"propic_friend",
+			"his",
+			"spread",
+			"comment",
+			"\n    ",
+			"post_model",
+			"his",
+			"your",
+			"self",
+			"$propic2",
+			"limit",
+			"login",
+			"redirect",
+			"create",
+			"regis",
+			"Dashboard_model",
+			"get_user_id\n",
+			"session->",
+			"get_user",
+			"login",
+			"}\n",
+			"$this->session->userdata\n$this->session->userdata",
+			"function",
+			"filter_dat",
+			"$this->_query_safety",
+			"_query_saf",
+			"query_sa",
+			"query_s",
+			"query_safe",
+			"_query_safety",
+			"'here",
+			"here",
+			"$this->data",
+			"here",
+			"die",
+			"ExpressionEngine",
+			"die",
+			"die('here');",
+			"die(",
+			"hree",
+			"lang",
+			"load->lang",
+			"lang",
+			"$this->data",
+			"tion create",
+			"form",
+			"function",
+			"tion _render_page",
+			"_render_page",
+			"login",
+			"count",
+			":954",
+			"CI",
+			"');\n",
+			"tion is_uni",
+			"CI->load",
+			"CI->",
+			"CI->db",
+			"$this->_dbhandle",
+			"_dbhandle",
+			"tion get(",
+			"$this->CI->lo",
+			"$this->CI->load",
+			"$this->CI",
+			"is_unique",
+			"is_uni",
+			"form_val",
+			"form_validation",
+			"views",
+			"$this->_query_safety",
+			"sess_use_da",
+			"$this->load->lib",
+			"();\n",
+			"<?",
+			"ion select",
+			"get(",
+			"_connect",
+			"\n",
+			"_connection_string",
+			"connect"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$this->set_flash_message('",
+			"'] = \"\";\\n$lang['",
+			"\"] \\t\\t\\t\\t= \"\";\\n",
+			"\"] = \"\";\\n",
+			"\"] = \"\";",
+			"",
+			",\\n",
+			"`\\n`",
+			"",
+			"searchTextAdvanced",
+			"$this->sphinxClient",
+			"$sphinxClient",
+			"searchText",
+			"$this->render_page",
+			"->set_flash",
+			"->set_",
+			"</sphinx:document>\\n",
+			"your_friend[$uname]",
+			"his",
+			"Profile_model",
+			"$data"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 364.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"form_val",
+				"system/libraries/Form_validation.php"
+			],
+			[
+				"ion_auth_mon",
+				"application/models/ion_auth_mongodb_model.php"
+			],
+			[
+				"form_va",
+				"system/libraries/Form_validation.php"
+			],
+			[
+				"form.php",
+				"system/libraries/Form_validation.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true
+}

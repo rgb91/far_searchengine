@@ -63,7 +63,7 @@
         <div class="row">
           <div class="col-lg-12">
 
-            <ul  class="list-unstyled" >
+            <!--ul  class="list-unstyled" >
               <li class="pull-right">
                 <a href="#top">Back to top</a>
               </li>
@@ -77,7 +77,12 @@
               <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li><?php } ?>
             </ul>
             <p>Copyright &copy; University of Kentucky</p>
-            <p>Developed by <a href="http://dreamsunborn.com/profile" rel="nofollow">Sanjay Saha</a>. Contact him at <a href="mailto:mail_sanjaysaha@yahoo.com">mail_sanjaysaha@yahoo.com</a>.</p>
+            <p>Developed by <a href="http://dreamsunborn.com/profile" rel="nofollow">Sanjay Saha</a>. Contact him at <a href="mailto:mail_sanjaysaha@yahoo.com">mail_sanjaysaha@yahoo.com</a>.</p-->
+
+             <p>&copy; 2013 College of Communication and Information | University of Kentucky, Lexington, KY | An Equal Opportunity University | <a href="mailto:erin.berger@uky.edu">Contact</a>&nbsp;| <a href="https://cis.uky.edu/cis/feedback">Feedback</a>&nbsp;|
+              <?php if (!$is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/login">Login</a><?php } ?>
+              <?php if ($is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a><?php } ?>
+             </p>
           </div>
         </div>
 
