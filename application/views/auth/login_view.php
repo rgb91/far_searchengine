@@ -33,6 +33,14 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
+	    	<label class="col-lg-2 control-label">&nbsp;</label>
+	    	<div class="col-lg-10">
+		    	<div class="well well-sm" style="text-align:center;">
+			  		<a href="<?php echo base_url();?>index.php/auth/register">Register if you don't have an account</a>
+				</div>
+			</div>
+		</div>
+	    <div class="form-group">
 		  <div class="col-lg-10 col-lg-offset-2">
 		    <button class="btn btn-default">Cancel</button>
 		    <button type="submit" class="btn btn-primary">Submit</button>

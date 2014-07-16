@@ -40,11 +40,11 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="<?php echo base_url();?>index.php/">Search</a>
+            </li>
             <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/profile" target="_blank">Profile</a></li><?php } ?>
             <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/register">Register</a></li><?php } ?>
-            <li>
-              <a href="<?php echo base_url();?>index.php/">Home</a>
-            </li>
             <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/login">Login</a></li><?php } ?>
             <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li><?php } ?>
           </ul>

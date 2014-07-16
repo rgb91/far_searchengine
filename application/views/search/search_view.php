@@ -22,6 +22,11 @@
 	  <label class="control-label" for="inputLarge">Search here</label>
 	  <input class="form-control input-lg" id="inputLarge" type="text" name="search_text" placeholder="Search Text" value="<?php echo ( isset($searchText) && strlen($searchText)>0)? $searchText:''; ?>" autofocus>
 	</div>
+	<div class="checkbox">
+      <label>
+        <input type="checkbox" name="is_synonym_on" value="1" <?php echo ( isset($is_synonym_on))? 'checked':''; ?>> Add results from synonyms
+      </label>
+    </div>
 	<div class="form-group" >
 	   <button style="width: 30%; margin-left:35%;" name="submit" type="submit" class="btn btn-primary btn-lg">Search</button>
 	</div>

@@ -24,14 +24,16 @@ class Search extends CI_Controller {
 			redirect('/auth/login', 'refresh');
 		}
 
-		$searchText = $this->getSearchText($pagination_tmp);
+		$searchText 			= $this->getSearchText($pagination_tmp);
+		$isSynonymOn 			= $this->getIsSynonymOn($pagination_tmp);
 
 		if ( !isset($searchText) || empty($searchText) ) {
 			$this->render_page('search/search_view', array());
 			return;
 		}
-		// file_put_contents('php://stderr', print_r($searchTextAdvanced.'\n', TRUE));
 		$this->session->set_userdata( 'search_text', $searchText );
+		$this->session->set_userdata( 'is_synonym_on', $isSynonymOn );
+
 
 		$collaborators 			= $this->Search_model->logSearchText($this->session->userdata('email'), $searchText);
 
@@ -39,7 +41,13 @@ class Search extends CI_Controller {
 		* Data retrieval from the search text is done here
 		*/
 		$this->setupSphinxClient();
-		$searchTextAdvanced 	= $this->getDetailedQuery($searchText);
+		$searchTextAdvanced 	= '';
+		// echo $isSynonymOn;
+		 // echo $isSynonymOn; die();
+		if (str_word_count($searchText) == 1 && isset($isSynonymOn) && $isSynonymOn)
+			$searchTextAdvanced = $this->getDetailedQueryWithSynonyms($searchText);
+		else
+			$searchTextAdvanced = $this->getDetailedQuery($searchText);
 		$result 				= $this->sphinxClient->Query( $searchTextAdvanced, 'test1' ); //test1 is the index name
 		$scientists 			= $this->getScientistArray($result);
 		$numOfCollabs			= count($scientists);
@@ -53,8 +61,8 @@ class Search extends CI_Controller {
 
         $data['links'] 			= $this->pagination->create_links();
 		$data['collaborators'] 	= $this->Search_model->getCollaboratorsInfoFromSearchResult($scientists, $page, $config['per_page']);
-		echo '<pre>'; print_r($data['collaborators']); die();
 		$data['searchText']		= $searchText;
+		$data['is_synonym_on']	= 'ss';
 		$this->render_page('search/search_view', $data);
 	}
 
@@ -81,6 +89,21 @@ class Search extends CI_Controller {
 		}
 
 		return $searchText;
+	}
+
+	private function getIsSynonymOn($pagination_tmp) {
+
+		$isSynonymOn = '';
+
+		if ( !isset($pagination_tmp) || empty($pagination_tmp) ) {
+			$this->session->unset_userdata('is_synonym_on');
+			$isSynonymOn 		= $this->input->post('is_synonym_on');
+		} else {
+			$isSynonymOn 		= $this->session->userdata('is_synonym_on');
+			// die('not here');
+		}
+
+		return $isSynonymOn;
 	}
 
 	private function setupSphinxClient() {
@@ -121,6 +144,51 @@ class Search extends CI_Controller {
 			\"^$searchText_stars\" | \"$searchText_stars\" | \"$searchText_stars\"~1 | \"$searchText_stars\"~2 | \"$searchText_stars\"~5 | \"$searchText_stars\"~100 |
 			\"$searchText_stars\"/$nowords_minus_1 | \"$searchText_stars\"/$nowords_minus_2 | \"$searchText_stars\"/$nowords_minus_3 | \"$searchText_stars\"/$nowords_minus_4 | \"$searchText_stars\"/$nowords_minus_5 |
 			($searchText_stars_or)";
+	}
+
+	private function getDetailedQueryWithSynonyms($searchText) {
+
+		$searchTextSynonymsRaw	= $this->getSynonymsFromAPI($searchText);
+		$searchTextSynonyms 	= NULL;
+		if (isset($searchTextSynonymsRaw) && !empty($searchTextSynonymsRaw)) {
+			if (isset($searchTextSynonymsRaw->noun->syn) && !empty($searchTextSynonymsRaw->noun->syn)) {
+				$searchTextSynonyms = $searchTextSynonymsRaw->noun->syn;
+			}
+		}
+		// echo '<pre>'; print_r($searchTextSynonyms); die();
+
+		$searchTextSynGlued 	= "\"".implode('" | "', $searchTextSynonyms)."\"";
+		$searchTextSynGluedStar	= "\"*".implode('*" | "*', $searchTextSynonyms)."*\"";
+
+		$searchText_e 			= explode(" ",$searchText);
+		$searchText_stars 		= "*".implode('* *', $searchText_e)."*";
+		$searchText_stars_or 	=  "*".implode('* | *', $searchText_e)."*";
+
+		return "\"^$searchText\" | \"$searchText\" | \"^$searchText_stars\" | \"$searchText_stars\" | $searchTextSynGlued | $searchTextSynGluedStar ";
+	}
+
+	private function getSynonymsFromAPI($searchText) {
+		/*
+		* Get the synonyms from the API
+		*/
+		$service_url 	= "http://words.bighugelabs.com/api/2/".SYNONYM_API_KEY."/".$searchText."/json ";
+		$curl 		 	= curl_init($service_url);
+
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$curl_response  = curl_exec($curl);
+
+		if ($curl_response === false) {
+		    $info = curl_getinfo($curl);
+		    curl_close($curl);
+		    return;
+		}
+		curl_close($curl);
+		$decoded 		= json_decode($curl_response);
+		if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
+		    // die('error occured: ' . $decoded->response->errormessage);
+		    return;
+		}
+		return $decoded;
 	}
 
 	private function getScientistArray($result) {
