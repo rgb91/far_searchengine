@@ -19,7 +19,7 @@
 <?php } ?>
 <form action="<?php echo base_url();?>index.php/auth/profile_dopost" method="POST" class="form-horizontal">
 	<fieldset>
-		<legend><?php echo $this->lang->line('label_profile'); ?></legend>
+		<!-- <legend><?php echo $this->lang->line('label_profile'); ?></legend> -->
 	    <div class="form-group">
 	      <label for="inputEmail" class="col-lg-2 control-label"><?php echo $this->lang->line('label_email'); ?></label>
 	      <div class="col-lg-10">

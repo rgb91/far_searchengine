@@ -16,11 +16,11 @@
   <p><?php echo $this->session->flashdata('message');?></p>
 </div>
 <?php } ?>
-<form action="<?php echo base_url();?>index.php/search/query" method="POST" class="form-horizontal">
+<form action="<?php echo base_url();?>index.php/search/query/" method="POST" class="form-horizontal">
 	<fieldset>
 	<div class="form-group">
 	  <label class="control-label" for="inputLarge">Search here</label>
-	  <input class="form-control input-lg" id="inputLarge" type="text" name="search_text" placeholder="Search Text" autofocus>
+	  <input class="form-control input-lg" id="inputLarge" type="text" name="search_text" placeholder="Search Text" value="<?php echo ( isset($searchText) && strlen($searchText)>0)? $searchText:''; ?>" autofocus>
 	</div>
 	<div class="form-group" >
 	   <button style="width: 30%; margin-left:35%;" name="submit" type="submit" class="btn btn-primary btn-lg">Search</button>
@@ -33,17 +33,21 @@
 <div class="page-header">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1><?php echo $this->lang->line('site_search_results');?></h1>
+			<h2><?php echo $this->lang->line('site_search_results');?></h2>
 		</div>
 	</div>
 </div>
 
+<?php
+
+
+?>
 
 <table class="table table-striped table-hover ">
     <thead>
     <tr>
         <th rowspan="2">Collaborator</th>
-        <th colspan="2">Primary Appointment</th>
+        <th colspan="2" style="text-align:center;">Primary Appointment</th>
         <th rowspan="2">Designation</th>
         <th rowspan="2">Email Addr.</th>
     </tr>
@@ -63,16 +67,23 @@ foreach ($collaborators as $collab) {
 	$collabEmailAddr		= $collab->EMailAddr;
 ?>
 	<tr>
-		<td><?php echo $collabFullName; ?></td>
+		<td><a href="<?php echo base_url();?>index.php/collaborator/details/<?php echo $collab->DMUSERID;?>"><?php echo $collabFullName; ?></a></td>
 		<td><?php echo $collabPrimApptColl; ?></td>
 		<td><?php echo $collabPrimApptDept; ?></td>
 		<td><?php echo $collabDesignation; ?></td>
-		<td><?php echo $collabEmailAddr; ?></td>
+		<td><a href="mailto:<?php echo $collabEmailAddr; ?>"><?php echo $collabEmailAddr; ?></a></td>
 	</tr>
 <?php } ?>
     </tbody>
 </table>
-<?php }
+
+<div class="row">
+	<div class="col-lg-6">
+<?php
+	echo $links;
+}
+/* end bracket for if condition */
+
 /*
 echo '<pre>';
 // if (isset($result))print_r($result['matches']);
@@ -81,6 +92,8 @@ echo '================================================<br>';
 // if (isset($scientists))print_r($scientists);
 echo '</pre>';*/
 ?>
+			</div>
+		</div>
 
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <div class="page-header">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Login Page</h1>
+      <h1>Login</h1>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
 <?php } ?>
 <form action="<?php echo base_url();?>index.php/auth/login_dopost" method="POST" class="form-horizontal">
 	<fieldset>
-	   <legend>Login</legend>
+	   <!-- <legend>Login</legend> -->
 	    <div class="form-group">
 	      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
 	      <div class="col-lg-10">

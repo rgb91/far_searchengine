@@ -37,5 +37,33 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+
+/**
+* Maximum number of entries for a user in search log
+* 0 => No limit, all the search history are logged in DB
+*/
+define('MAX_ENTRIES_IN_SEARCH_LOG', 	10);
+
+
+/**
+* Maximum number of results per search
+*/
+define('MAX_NUMBER_OF_RESULTS', 		100);
+
+/**
+* Minimum number of characters in username
+*/
+define('USERNAME_MIN_LENGTH', 			4);
+
+/**
+* Minimum number of characters in password
+*/
+define('PASSWORD_MIN_LENGTH',			5);
+
+/**
+* synonym api key, 1000 hits per day MAX
+*/
+define('SYNONYM_API_KEY',				'81650c4ec7f729fe680522fa3c4daa3a');
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

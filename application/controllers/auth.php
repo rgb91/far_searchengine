@@ -2,9 +2,6 @@
 
 class Auth extends CI_Controller {
 
-	private $USERNAME_MIN_LENGTH 	= 4;
-	private $PASSWORD_MIN_LENGTH 	= 5;
-
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Auth_model');
@@ -148,13 +145,13 @@ class Auth extends CI_Controller {
 			redirect('auth/'.$redirectMethod);
 		}
 
-		if ( strlen($pass) < $this->USERNAME_MIN_LENGTH ) {
-			$this->set_flash_message('Username must contain at least '.$this->USERNAME_MIN_LENGTH.' characters');
+		if ( strlen($pass) < USERNAME_MIN_LENGTH ) {
+			$this->set_flash_message('Username must contain at least '.USERNAME_MIN_LENGTH.' characters');
 			redirect('auth/'.$redirectMethod);
 		}
 
-		if ( strlen($pass) < $this->PASSWORD_MIN_LENGTH ) {
-			$this->set_flash_message('Password must contain at least '.$this->PASSWORD_MIN_LENGTH.' characters');
+		if ( strlen($pass) < PASSWORD_MIN_LENGTH ) {
+			$this->set_flash_message('Password must contain at least '.PASSWORD_MIN_LENGTH.' characters');
 			redirect('auth/'.$redirectMethod);
 		}
 
@@ -167,6 +164,12 @@ class Auth extends CI_Controller {
 			$this->set_flash_message('This email has already been registered');
 			redirect('auth/'.$redirectMethod);
 		}
+
+		if ( $redirectMethod == 'register' && !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
+			$this->set_flash_message('This email is not valid');
+			redirect('auth/'.$redirectMethod);
+		}
+
 
 		if ( $redirectMethod == 'register' && $this->Auth_model->is_taken_username($uname) ) {
 			$this->set_flash_message('This username has already been registered');

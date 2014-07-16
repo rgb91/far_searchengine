@@ -40,7 +40,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" target="_blank">University of Kentucky</a></li>
+            <?php if ($is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/profile" target="_blank">Profile</a></li><?php } ?>
             <?php if (!$is_logged_in) {?><li><a href="<?php echo base_url();?>index.php/auth/register">Register</a></li><?php } ?>
             <li>
               <a href="<?php echo base_url();?>index.php/">Home</a>
@@ -79,7 +79,7 @@
             <p>Copyright &copy; University of Kentucky</p>
             <p>Developed by <a href="http://dreamsunborn.com/profile" rel="nofollow">Sanjay Saha</a>. Contact him at <a href="mailto:mail_sanjaysaha@yahoo.com">mail_sanjaysaha@yahoo.com</a>.</p-->
 
-             <p>&copy; 2013 College of Communication and Information | University of Kentucky, Lexington, KY | An Equal Opportunity University | <a href="mailto:erin.berger@uky.edu">Contact</a>&nbsp;| <a href="https://cis.uky.edu/cis/feedback">Feedback</a>&nbsp;|
+             <p style="text-align:center;">&copy; 2013 College of Communication and Information | University of Kentucky, Lexington, KY | An Equal Opportunity University | <a href="mailto:erin.berger@uky.edu">Contact</a>&nbsp;| <a href="https://cis.uky.edu/cis/feedback">Feedback</a>&nbsp;|
               <?php if (!$is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/login">Login</a><?php } ?>
               <?php if ($is_logged_in) {?><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a><?php } ?>
              </p>

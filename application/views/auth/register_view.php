@@ -17,9 +17,9 @@
   <p><?php echo $this->session->flashdata('message');?></p>
 </div>
 <?php } ?>
-<form action="<?php echo base_url();?>index.php/auth/register_dopost" method="POST" class="form-horizontal">
+<form action="<?php echo base_url();?>index.php/auth/register_dopost" method="POST" class="form-horizontal" onsubmit="return validateRegistrationForm()">
 	<fieldset>
-		<legend><?php echo $this->lang->line('label_register'); ?></legend>
+		<!-- <legend><?php echo $this->lang->line('label_register'); ?></legend> -->
 	    <div class="form-group">
 	      <label for="inputEmail" class="col-lg-2 control-label"><?php echo $this->lang->line('label_email'); ?></label>
 	      <div class="col-lg-10">
@@ -72,3 +72,47 @@
 
 	</div>
 </div>
+
+
+<script type="text/javascript">
+function validateRegistrationForm() {
+	if ( emptyFieldExists() ) {
+		alert('Form can not be incomplete, please fill up all the fields.');
+		return false;
+	}
+	if ( !validateEmail() ) {
+		alert('Email address format is not correct!');
+		return false;
+	}
+	return true;
+}
+
+function emptyFieldExists() {
+	var field = document.getElementById('inputEmail').value;
+	if (!field) return true;
+
+	field = document.getElementById('inputUserName').value;
+	if (!field) return true;
+
+	field = document.getElementById('inputFirstName').value;
+	if (!field) return true;
+
+	field = document.getElementById('inputLastName').value;
+	if (!field) return true;
+
+	field = document.getElementById('inputPassword').value;
+	if (!field) return true;
+
+	field = document.getElementById('inputRePassword').value;
+	if (!field) return true;
+
+	return false;
+}
+
+function validateEmail() {
+	var email 	= document.getElementById('inputEmail').value;
+    var re 		= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+    // return true;
+}
+</script>

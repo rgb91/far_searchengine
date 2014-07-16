@@ -7,8 +7,6 @@ class Search extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('Search_model');
-		$this->load->library('pagination');
-		$this->load->helper('url');
 	}
 
 	public function index() {
@@ -19,68 +17,38 @@ class Search extends CI_Controller {
 		redirect('/search/query', 'refresh');
 	}
 
-	public function query($pagination_tmp = '', $page_no='') {
+	public function query() {
 		if ( $this->session->userdata('user_login') != 1 ) {
 			redirect('/auth/login', 'refresh');
 		}
 
-		$searchText = $this->getSearchText($pagination_tmp);
-
+		$searchText 			= $this->input->post('search_text');
 		if ( !isset($searchText) || empty($searchText) ) {
 			$this->render_page('search/search_view', array());
 			return;
 		}
-		// file_put_contents('php://stderr', print_r($searchTextAdvanced.'\n', TRUE));
-		$this->session->set_userdata( 'search_text', $searchText );
 
+		// Inserting the search by user in the
+		// SearchHistory table in MySQL
 		$collaborators 			= $this->Search_model->logSearchText($this->session->userdata('email'), $searchText);
 
-		/*
-		* Data retrieval from the search text is done here
-		*/
 		$this->setupSphinxClient();
 		$searchTextAdvanced 	= $this->getDetailedQuery($searchText);
+		// file_put_contents('php://stderr', print_r($searchTextAdvanced.'\n', TRUE));
+
 		$result 				= $this->sphinxClient->Query( $searchTextAdvanced, 'test1' ); //test1 is the index name
+		// echo '<pre>'; print_r($searchTextAdvanced.'<br>'); print_r($result); die();
+
 		$scientists 			= $this->getScientistArray($result);
-		$numOfCollabs			= count($scientists);
+		$collaborators 			= $this->Search_model->getCollaboratorsInfoFromSearchResult($scientists);
 
-		/*
-		* The configuration for pagination
-		*/
-		$config 				= $this->getConfigForPagination($numOfCollabs);
-		$this->pagination->initialize($config);
-        $page 					= ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 
-        $data['links'] 			= $this->pagination->create_links();
-		$data['collaborators'] 	= $this->Search_model->getCollaboratorsInfoFromSearchResult($scientists, $page, $config['per_page']);
-		echo '<pre>'; print_r($data['collaborators']); die();
+		// $data['result'] 		= $result;
+		// $data['scientists'] 	= $scientists;
+		$data['collaborators'] 	= $collaborators;
+		// echo '<pre>'; print_r($collaborators);  die();
 		$data['searchText']		= $searchText;
 		$this->render_page('search/search_view', $data);
-	}
-
-	private function getConfigForPagination($numOfCollabs) {
-		$config = array();
-        $config['base_url'] 	= base_url() . "index.php/search/query/page";
-        $config['total_rows'] 	= $numOfCollabs;
-        $config['per_page'] 	= 10;
-        $config['uri_segment'] 	= 4;
-        $config['num_links'] 	= 2;
-
-        return $config;
-	}
-
-	private function getSearchText($pagination_tmp) {
-
-		$searchText = '';
-
-		if ( !isset($pagination_tmp) || empty($pagination_tmp) ) {
-			$this->session->unset_userdata('search_text');
-			$searchText 		= $this->input->post('search_text');
-		} else {
-			$searchText 		= $this->session->userdata('search_text');
-		}
-
-		return $searchText;
 	}
 
 	private function setupSphinxClient() {
