@@ -42,8 +42,7 @@ class Search extends CI_Controller {
 		*/
 		$this->setupSphinxClient();
 		$searchTextAdvanced 	= '';
-		// echo $isSynonymOn;
-		 // echo $isSynonymOn; die();
+
 		if (str_word_count($searchText) == 1 && isset($isSynonymOn) && $isSynonymOn)
 			$searchTextAdvanced = $this->getDetailedQueryWithSynonyms($searchText);
 		else
@@ -62,7 +61,7 @@ class Search extends CI_Controller {
         $data['links'] 			= $this->pagination->create_links();
 		$data['collaborators'] 	= $this->Search_model->getCollaboratorsInfoFromSearchResult($scientists, $page, $config['per_page']);
 		$data['searchText']		= $searchText;
-		$data['is_synonym_on']	= 'ss';
+		$data['is_synonym_on']	= $isSynonymOn;
 		$this->render_page('search/search_view', $data);
 	}
 
@@ -119,6 +118,8 @@ class Search extends CI_Controller {
 	}
 
 	private function getDetailedQuery($searchText) {
+
+
 
 		if ( empty($searchText)) {$searchText = "pseudonym";}
 

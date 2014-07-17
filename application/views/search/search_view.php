@@ -24,7 +24,7 @@
 	</div>
 	<div class="checkbox">
       <label>
-        <input type="checkbox" name="is_synonym_on" value="1" <?php echo ( isset($is_synonym_on))? 'checked':''; ?>> Add results from synonyms
+        <input type="checkbox" name="is_synonym_on" value="1" <?php echo ( isset($is_synonym_on)&& $is_synonym_on=='1')? 'checked':''; ?>> Add results from synonyms
       </label>
     </div>
 	<div class="form-group" >
@@ -34,14 +34,12 @@
 </form>
 
 <?php if (isset($collaborators) && !empty($collaborators)) { ?>
-<br><br>
-<div class="page-header">
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h2><?php echo $this->lang->line('site_search_results');?></h2>
 		</div>
 	</div>
-</div>
 
 <?php
 
@@ -89,13 +87,6 @@ foreach ($collaborators as $collab) {
 }
 /* end bracket for if condition */
 
-/*
-echo '<pre>';
-// if (isset($result))print_r($result['matches']);
-if (isset($collaborators)) print_r($collaborators);
-echo '================================================<br>';
-// if (isset($scientists))print_r($scientists);
-echo '</pre>';*/
 ?>
 			</div>
 		</div>
